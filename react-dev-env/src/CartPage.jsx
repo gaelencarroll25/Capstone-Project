@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { CartContext } from "./context/cart";
-import Axios from "axios";
+// import Axios from "axios";
 import ShippingForm from "./ShippingForm";
 
 const CartPage = () => {

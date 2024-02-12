@@ -56,22 +56,20 @@ app.get("/products/:id", async (req, res) => {
   }
 });
 
-// get products by type, planet=type, prod=film
+// Get Products by Type
 app.get('/type/:id/products', async (req, res) => {
     const typeId = parseInt(req.params.id);
     try{
         const results = await products
           .find({ typeId: typeId })
           .toArray();
-        // const productIds = results.map(result => result.typeId)
-        // const filmNames = await films.find({id: {$in: filmIds}}).toArray();
         if(results){
             res.json(results);
         }else{
-            res.status(404).json({message: 'film not found'})
+            res.status(404).json({message: 'Product not found'})
         }
     }catch(error){
-        res.status(500).json({message:'internal server error'})
+        res.status(500).json({message:'Internal server error'})
     }
 });
 
@@ -124,8 +122,7 @@ app.post("/checkout", async (req, res) => {
 //         console.error(err);
 //         res.status(500).json({ error: "Internal server error" });
 //       } else {
-//         const recommendations = JSON.parse(results[0]);
-//         res.json(recommendations);
+//         res.end(results);
 //       }
 //     }
 //   );
